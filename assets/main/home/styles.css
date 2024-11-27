@@ -1,0 +1,220 @@
+/* Existing CSS */
+body {
+    font-family: 'Quicksand', sans-serif; /* Apply Quicksand font to the body */
+    background-image: url("dir/horz-dark-purple.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    margin-top: 60px;
+    margin-bottom: 100px;
+}
+
+/* Top bar initial default background on page load */
+.top-bar {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%);
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 0px solid purple;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    opacity: 1; /* Full opacity on load */
+    transition: background 0.3s ease;
+    animation: fadeIn 1s forwards;
+}
+
+/* Scroll effect when the user scrolls down */
+.top-bar.scroll-active {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.01) 100%);
+}
+
+/* Logo styles */
+.logo {
+    font-size: 32px;
+    font-weight: 400;
+    text-decoration: none;
+    color: #fff;
+    font-family: "Jersey 25", sans-serif;
+    transition: transform 0.2s ease;
+    font-style: normal;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+/* Button container styles */
+.button-container {
+    display: flex;
+    align-items: center;
+}
+
+.custom-button {
+    background-color: transparent;
+    border: none;
+    border-radius: 12px;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+}
+
+.custom-button img {
+    width: 20px;
+    height: 20px;
+}
+
+.custom-button:hover {
+    background-color: #4834d4;
+}
+
+.custom-button:active {
+    background-color: #4834d4;
+}
+
+/* Button hover effects */
+.discord-button:hover {
+    background-color: #7289d2;
+}
+
+.discord-button:active {
+    background-color: #5865F2;
+}
+
+.valorant-button:hover {
+    background-color: #fd4556;
+}
+
+.valorant-button:active {
+    background-color: #bd3944;
+}
+
+.spotify-button:hover {
+    background-color: #1ed760;
+}
+
+.spotify-button:active {
+    background-color: #1db954;
+}
+
+.telegram-button:hover {
+    background-color: #2aabee;
+}
+
+.telegram-button:active {
+    background-color: #187aa8;
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Additional info box */
+.additional-info {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgb(56, 0, 89);
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    margin-top: 10px;
+}
+
+.info-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.info-text {
+    text-align: left;
+}
+
+/* Bottom button styling */
+.bottom-button {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bottom-button a {
+    background-color: #6c5ce7;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1px solid #6c5ce7;
+    transition: background-color 0.3s ease;
+}
+
+.bottom-button a:hover {
+    background-color: #4834d4;
+}
+
+/* Bottom bar styling */
+.bottom-bar {
+    position: absolute;
+    bottom: 100;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: none;
+}
+
+.copyright {
+    margin: 0;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(18, 0, 136, 0.8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(18, 0, 136, 1);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgb(18, 0, 136);
+}

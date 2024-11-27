@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Youth</title>
+    <link rel="icon" href="assets/EV-Youth-No-BG.png" type="image/png">
+    <link rel="stylesheet" href="assets/main/evyouth/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap">
+</head>
+<body>
+    <div class="top-bar">
+        <img src="assets/Valorant_logo.png" alt="Valorant Logo">
+        <button class="custom-button" onclick="location.href='index.html';">
+            <img src="assets/MainPage.png" alt="Custom Icon">
+        </button>
+    </div>
+
+    <div class="team-info">
+        <img src="assets/EV-Youth-No-BG(Previous).png" alt="Team Logo">
+        <h2>EV Youth</h2>
+    </div>
+
+    <div class="players-container">
+        <div class="player-box" style="--animation-order: 2;" data-agents='[{"name": "Jett", "icon": "assets/agents/Jett_icon.webp"}, {"name": "Gekko", "icon": "assets/agents/Gekko_icon.webp"}]'>
+            <img src="assets/players/Default.jpg" alt="Player 2">
+            <h3>Peely</h3>
+            <p>Mohammad Messgar</p>
+        </div>
+        <div class="player-box" style="--animation-order: 1;" data-agents='[{"name": "Yoru", "icon": "assets/agents/Yoru_icon.webp"}, {"name": "Sova", "icon": "assets/agents/Sova_icon.webp"}]'>
+            <img src="assets/players/Mjölnir.png" alt="Player 1">
+            <h3>Mjölnir</h3>
+            <p>Matin Zareh</p>
+        </div>
+    </div>
+
+    <button class="sub-button" onclick="location.href='esports.html';">Exo Vanguard</button>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h3 style="color: #fff;">Signature Agents</h3>
+            <div id="agents-container" class="agents-container"></div>
+        </div>
+    </div>
+
+    <script src="assets/main/evyouth/script.js"></script>
+</body>
+</html>

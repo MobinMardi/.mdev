@@ -1,0 +1,314 @@
+@font-face {
+    font-family: 'Valorant';
+    src: url('Valorant-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-image: url("dir/glass-dark-purple.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 140px;
+    margin-bottom: 100px;
+}
+
+.body-no-scroll {
+    overflow: hidden;
+}
+
+.top-bar {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.top-bar img {
+    width: 100px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.top-bar img:hover {
+    transform: scale(1.1);
+}
+
+.custom-button {
+    background-color: hsla(248, 65%, 52%, 0);
+    border: none;
+    border-radius: 12px;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.custom-button img {
+    width: 20px;
+    height: 20px;
+}
+
+.custom-button:hover {
+    background-color: #4834d4;
+}
+
+.custom-button:active {
+    background-color: #4834d4;
+}
+
+.team-info {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.team-info img {
+    width: 80px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 0%;
+    transition: none;
+    vertical-align: middle;
+    pointer-events: none; /* Disable interaction */
+    user-select: none; /* Prevent selection */
+}
+
+.team-info h2 {
+    margin: 0;
+    font-size: 36px;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+    display: inline-block;
+    vertical-align: middle;
+    user-select: none;
+    color: #000000;
+}
+
+.players-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.player-box {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 8px;
+    width: 200px;
+    text-align: center;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, opacity 0.5s ease;
+    opacity: 0;
+}
+
+.player-box:hover {
+    transform: translateY(-5px);
+}
+
+.player-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    object-fit: cover;
+    user-select: none; /* Prevent selection */
+    pointer-events: none; /* Disable interaction */
+}
+
+.player-box h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #fff;
+    user-select: none;
+}
+
+.player-box p {
+    margin: 5px 0;
+    color: #80808088;
+    font-size: 14px;
+    user-select: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.players-container .player-box {
+    animation: fadeIn 1s ease forwards;
+    animation-delay: calc(var(--animation-order) * 0.1s);
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+    background-color: #0000005b;
+    margin: 15% auto;
+    padding: 20px;
+    width: 25%;
+    max-width: 275px;
+    text-align: center;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeInPopup 0.3s ease-in-out;
+    backdrop-filter: blur(10px);
+    border: 2px solid #8c8c8c;
+}
+
+.popup-content #agent-name {
+    color: #fff;
+}
+
+.popup img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.popup p {
+    font-size: 18px;
+    margin: 0;
+    color: #000;
+}
+
+@keyframes fadeInPopup {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeOutPopup {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+.popup-content.fade-out {
+    animation: fadeOutPopup 0.3s ease-in-out forwards;
+}
+
+.agents-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.agent-info {
+    text-align: center;
+    margin: 5px;
+}
+
+.agent-info img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 5px;
+}
+
+.agent-info p {
+    color: #fff;
+    margin: 0;
+    font-size: 14px;
+}
+
+.sub-button {
+    display: block;
+    margin: 85px auto 0;
+    padding: 10px 20px;
+    background-color: rgba(51, 0, 255, 0.118);
+    border: 2px solid #ffffff00;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: fadeInButton 1s ease forwards;
+}
+
+.sub-button:hover {
+    background-color: rgba(51, 0, 255, 0.255);
+    transform: scale(1.05);
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(72, 52, 212, 0.8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(72, 52, 212, 1);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgb(56, 40, 159);
+}
+
+/* Prevent image selection, dragging, and right-click */
+img {
+    user-select: none; /* Prevent selection */
+    pointer-events: none; /* Disable interaction */
+    -webkit-user-drag: none; /* Prevent dragging on WebKit browsers */
+}
+
+/* Allow pointer events for interactive images */
+.custom-button img, .player-box img {
+    pointer-events: auto; /* Enable interaction for specific images */
+}
