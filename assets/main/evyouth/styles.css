@@ -101,7 +101,13 @@ body {
     display: inline-block;
     vertical-align: middle;
     user-select: none;
-    color: #000000;
+
+    /* Gradient text styling */
+    background: linear-gradient(90deg, #ff7171, #a280ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
 }
 
 .players-container {
