@@ -1,0 +1,478 @@
+/* Base styles */
+:root {
+  --background: #080008;
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --purple-primary: rgb(70, 0, 140);
+  --purple-secondary: rgba(34, 10, 52, 0.4);
+  --purple-border: rgba(70, 0, 140, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  background: linear-gradient(to bottom, rgb(34, 10, 52), #000000);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+  position: relative;
+  width: 100%;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Background overlay */
+.background-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.2;
+  pointer-events: none;
+  background-image: url("path/to/your/texture.png");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(34, 10, 52, 0.6);
+}
+
+.logo {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.social-buttons {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.social-button {
+  padding: 0.25rem;
+  border-radius: 40%;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.social-button:hover {
+  background-color: var(--purple-primary);
+}
+
+.social-button.home:hover {
+  background-color: #4834d4;
+}
+
+.icon-wrapper {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Main content */
+.main-content {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 7rem 1rem 5rem;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+/* Team section */
+.team-section {
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.team-card {
+  background-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  border-radius: 0;
+  padding: 1.5rem 0;
+  box-shadow: none;
+  max-width: 100%;
+}
+
+.team-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.team-header img {
+  width: 4rem;
+  height: 4rem;
+  margin-right: 1rem;
+}
+
+.gradient-text {
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #8451eb, #e768bd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Players container */
+.players-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.player-box {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  width: 170px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  border: 1px solid rgba(70, 0, 140, 0.2);
+  opacity: 0;
+  animation: fadeInPlayer 0.5s ease-out forwards;
+  animation-delay: calc(var(--animation-order) * 0.1s + 0.3s);
+}
+
+.player-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  border-color: rgba(70, 0, 140, 0.5);
+}
+
+.player-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.player-box h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+.player-box p {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* Button container */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+.action-button {
+  background-color: rgba(70, 0, 140, 0.3);
+  color: var(--text-primary);
+  border: 1px solid rgba(70, 0, 140, 0.5);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.action-button:hover {
+  background-color: rgba(70, 0, 140, 0.5);
+  transform: scale(1.05);
+}
+
+/* Popup */
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.popup-content {
+  background-color: var(--purple-secondary);
+  border: 1px solid var(--purple-border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 400px;
+  margin: 20vh auto 0;
+  text-align: center;
+  animation: fadeInPopup 0.3s ease-out;
+}
+
+.popup-content h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.agents-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.agent-info {
+  text-align: center;
+}
+
+.agent-info img {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.agent-info p {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* Footer */
+.footer {
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--purple-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 1;
+  background: rgba(34, 10, 52, 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInPlayer {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInPopup {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOutPopup {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.popup-content.fade-out {
+  animation: fadeOutPopup 0.3s ease-in-out forwards;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 0, 200, 0.8);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 0, 200, 1);
+}
+
+/* Prevent image selection and dragging */
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Allow pointer events for interactive images */
+.social-button img,
+.player-box img {
+  pointer-events: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .team-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .team-header img {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .team-card {
+    padding: 1rem 0;
+  }
+
+  .players-container {
+    gap: 1rem;
+  }
+
+  .player-box {
+    width: 140px;
+  }
+
+  .gradient-text {
+    font-size: 1.75rem;
+  }
+
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .players-container {
+    gap: 0.75rem;
+  }
+
+  .player-box {
+    width: 130px;
+    padding: 0.75rem;
+  }
+
+  .player-box h3 {
+    font-size: 1rem;
+  }
+
+  .player-box p {
+    font-size: 0.75rem;
+  }
+
+  .main-content {
+    padding: 6rem 0.75rem 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main-content {
+    max-width: 90rem;
+  }
+
+  .players-container {
+    gap: 2rem;
+  }
+
+  .player-box {
+    width: 180px;
+  }
+}
+
+/* Fix for body scroll when popup is open */
+.body-no-scroll {
+  overflow: hidden;
+}
+
