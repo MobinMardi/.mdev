@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo Vanguard Esports</title>
+    <link rel="icon" href="assets/EV-Updated-Logo.png" type="image/png">
+    <link rel="stylesheet" href="assets/main/ev/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script defer src="assets/main/ev/script.js"></script>
+</head>
+<body>
+    <div class="min-h-screen">
+        <!-- Background overlay with texture -->
+        <div class="background-overlay"></div>
+
+        <!-- Navbar -->
+        <header class="navbar">
+            <a href="/" class="logo">VALORANT</a>
+            
+            <div class="social-buttons">
+                <a href="index.html" class="social-button home" aria-label="Home">
+                    <div class="icon-wrapper">
+                        <img src="assets/MainPage.png" alt="Home icon" width="20" height="20">
+                    </div>
+                </a>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Team Info Section -->
+            <section class="team-section">
+                <div class="team-card">
+                    <div class="team-header">
+                        <img src="assets/EV-Updated-Logo.png" alt="Team Logo">
+                        <h1 class="gradient-text">Exo Vanguard</h1>
+                    </div>
+                    
+                    <div class="players-container">
+                        <div class="player-box" style="--animation-order: 1;" data-agents='[{"name": "Jett", "icon": "assets/agents/Jett_icon.webp"}]'>
+                            <img src="assets/players/mDev.png" alt="Player 1">
+                            <h3>mDev (IGL)</h3>
+                            <p>Mobin Mardi</p>
+                        </div>
+                        <div class="player-box" style="--animation-order: 2;"  data-agents='[{"name": "Reyna", "icon": "assets/agents/Reyna_icon.webp"}, {"name": "Astra", "icon": "assets/agents/Astra_icon.webp"}]'>
+                            <img src="assets/players/SiLenT.png" alt="Player 2">
+                            <h3>SiLenT</h3>
+                            <p>Amin Mardi</p>
+                        </div>
+                        <div class="player-box" style="--animation-order: 3;" data-agents='[{"name": "Reyna", "icon": "assets/agents/Reyna_icon.webp"}, {"name": "Deadlock", "icon": "assets/agents/Deadlock_icon.webp"}, {"name": "Killjoy", "icon": "assets/agents/Killjoy_icon.webp"}]'>
+                            <img src="assets/players/Kagami.png" alt="Player 3">
+                            <h3>Kagami</h3>
+                            <p>Hossein Messgar</p>
+                        </div>
+                        <div class="player-box" style="--animation-order: 4;" data-agents='[{"name": "Raze", "icon": "assets/agents/Raze_icon.webp"}, {"name": "Tejo", "icon": "assets/agents/Tejo_icon.webp"}, {"name": "Killjoy", "icon": "assets/agents/Killjoy_icon.webp"}]'>
+                            <img src="assets/players/HAddieS.png" alt="Player 4">
+                            <h3>HAddieS</h3>
+                            <p>Hadis Jabbarzadeh</p>
+                        </div>
+                        <div class="player-box" style="--animation-order: 5;" data-agents='[{"name": "Reyna", "icon": "assets/agents/Reyna_icon.webp"}, {"name": "Sage", "icon": "assets/agents/Sage_icon.webp"}]'>
+                            <img src="assets/players/Mehdi.png" alt="Player 5">
+                            <h3>Mehdi</h3>
+                            <p>Mehdi Messgar</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="button-container">
+                <a href="evyouth.html" class="action-button">EV Youth Team</a>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>© <span id="current-year"></span> mDev. All rights reserved - MIT Licensed</p>
+        </footer>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h3>Signature Agents</h3>
+            <div id="agents-container" class="agents-container"></div>
+        </div>
+    </div>
+
+    <script src="assets/main/ev/script.js"></script>
+</body>
+</html>
+
