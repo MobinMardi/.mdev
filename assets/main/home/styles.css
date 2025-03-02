@@ -1,220 +1,359 @@
-/* Existing CSS */
+/* Base styles */
+:root {
+  --background: #0a000d;
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --purple-primary: rgb(88, 0, 176);
+  --purple-secondary: rgba(44, 14, 67, 0.3);
+  --purple-border: rgba(88, 0, 176, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
 body {
-    font-family: 'Quicksand', sans-serif; /* Apply Quicksand font to the body */
-    background-image: url("dir/horz-dark-purple.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #fff;
-    margin-top: 60px;
-    margin-bottom: 100px;
+  font-family: "Quicksand", sans-serif;
+  background: linear-gradient(to bottom, rgb(44, 14, 67), #000000);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
 }
 
-/* Top bar initial default background on page load */
-.top-bar {
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%);
-    color: #fff;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 0px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 0px solid purple;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    opacity: 1; /* Full opacity on load */
-    transition: background 0.3s ease;
-    animation: fadeIn 1s forwards;
+/* Background overlay */
+.background-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.2;
+  pointer-events: none;
+  background: linear-gradient(45deg, rgba(88, 28, 135, 0.3), rgba(0, 0, 0, 0.3));
 }
 
-/* Scroll effect when the user scrolls down */
-.top-bar.scroll-active {
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.01) 100%);
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(44, 14, 67, 0.4);
 }
 
-/* Logo styles */
 .logo {
-    font-size: 32px;
-    font-weight: 400;
-    text-decoration: none;
-    color: #fff;
-    font-family: "Jersey 25", sans-serif;
-    transition: transform 0.2s ease;
-    font-style: normal;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: transform 0.2s;
 }
 
 .logo:hover {
-    transform: scale(1.1);
+  transform: scale(1.05);
 }
 
-/* Button container styles */
-.button-container {
-    display: flex;
-    align-items: center;
+.social-buttons {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
 }
 
-.custom-button {
-    background-color: transparent;
-    border: none;
-    border-radius: 12px;
-    padding: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease;
-    margin-left: 10px;
+.social-button {
+  padding: 0.25rem;
+  border-radius: 40%;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 2.75rem;
+  height: 2.75rem;
 }
 
-.custom-button img {
-    width: 20px;
-    height: 20px;
+.social-button:hover {
+  background-color: var(--purple-primary);
 }
 
-.custom-button:hover {
-    background-color: #4834d4;
+.social-button.discord:hover {
+  background-color: #7289d2;
+}
+.social-button.valorant:hover {
+  background-color: #fd4556;
+}
+.social-button.spotify:hover {
+  background-color: #1ed760;
+}
+.social-button.telegram:hover {
+  background-color: #2aabee;
 }
 
-.custom-button:active {
-    background-color: #4834d4;
+.icon-wrapper {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Button hover effects */
-.discord-button:hover {
-    background-color: #7289d2;
+.icon-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
-.discord-button:active {
-    background-color: #5865F2;
+/* Main content */
+.main-content {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 7rem 1rem 5rem;
+  position: relative;
+  z-index: 1;
 }
 
-.valorant-button:hover {
-    background-color: #fd4556;
+/* Profile section */
+.profile-section {
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
 }
 
-.valorant-button:active {
-    background-color: #bd3944;
+.profile-card {
+  background-color: var(--purple-secondary);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--purple-border);
+  border-radius: 0.75rem;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-.spotify-button:hover {
-    background-color: #1ed760;
+@media (min-width: 768px) {
+  .profile-card {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }
 
-.spotify-button:active {
-    background-color: #1db954;
+.profile-image-wrapper {
+  position: relative;
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  text-decoration: none;
 }
 
-.telegram-button:hover {
-    background-color: #2aabee;
-}
-
-.telegram-button:active {
-    background-color: #187aa8;
-}
-
-/* Animation for fade-in effect */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Additional info box */
-.additional-info {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    padding: 20px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgb(56, 0, 89);
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-    margin-top: 10px;
-}
-
-.info-logo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-right: 20px;
-}
-
-.info-text {
-    text-align: left;
-}
-
-/* Bottom button styling */
-.bottom-button {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.bottom-button a {
-    background-color: #6c5ce7;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    border: 1px solid #6c5ce7;
-    transition: background-color 0.3s ease;
-}
-
-.bottom-button a:hover {
-    background-color: #4834d4;
-}
-
-/* Bottom bar styling */
-.bottom-bar {
-    position: absolute;
-    bottom: 100;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0);
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 14px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-top: none;
-}
-
-.copyright {
+@media (min-width: 768px) {
+  .profile-image-wrapper {
     margin: 0;
+  }
 }
 
-/* Custom Scrollbar */
+.profile-image {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--purple-primary);
+  transition: border-color 0.3s;
+}
+
+@media (min-width: 768px) {
+  .profile-image {
+    width: 8rem;
+    height: 8rem;
+  }
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.github-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.profile-image-wrapper:hover .github-overlay {
+  opacity: 1;
+}
+
+.profile-image-wrapper:hover .profile-image {
+  border-color: var(--text-primary);
+}
+
+.github-icon {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  padding: 0.5rem;
+  color: white;
+}
+
+.profile-content {
+  text-align: center;
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  .profile-content {
+    text-align: left;
+  }
+}
+
+.gradient-text {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(to right, #9461fb, #f978cd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+@media (min-width: 768px) {
+  .gradient-text {
+    font-size: 1.875rem;
+  }
+}
+
+.profile-content p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  max-width: 42rem;
+}
+
+/* Resume section */
+.resume-section {
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.resume-card {
+  background-color: var(--purple-secondary);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--purple-border);
+  border-radius: 0.75rem;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.resume-item {
+  margin-bottom: 2rem;
+}
+
+.resume-item:last-child {
+  margin-bottom: 0;
+}
+
+.resume-item h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .resume-item h2 {
+    font-size: 1.5rem;
+  }
+}
+
+.dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #9461fb;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.resume-item p,
+.resume-item ul {
+  color: var(--text-secondary);
+  padding-left: 1rem;
+  border-left: 1px solid rgba(147, 51, 234, 0.5);
+}
+
+.resume-item ul {
+  list-style-position: inside;
+  list-style-type: disc;
+}
+
+.resume-item li {
+  margin-bottom: 0.5rem;
+}
+
+/* Footer */
+.footer {
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--purple-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 1;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar */
 ::-webkit-scrollbar {
-    width: 5px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(18, 0, 136, 0.8);
+  background: rgba(128, 0, 255, 0.8);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(18, 0, 136, 1);
-}
-
-::-webkit-scrollbar-thumb:active {
-    background: rgb(18, 0, 136);
+  background: rgba(128, 0, 255, 1);
 }
